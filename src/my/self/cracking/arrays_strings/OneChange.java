@@ -22,7 +22,7 @@ public class OneChange {
     }
 
     private static boolean oneChange(String from, String to) {
-
+        //implement check
         return false;
     }
 }
