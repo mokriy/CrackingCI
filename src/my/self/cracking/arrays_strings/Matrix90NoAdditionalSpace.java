@@ -32,12 +32,21 @@ public class Matrix90NoAdditionalSpace {
     }
 
     private static byte[][] rotate90() {
-        byte[][] image2 = new byte[4][4];
-        for (byte row = 3; row >= 0; row --) {
-            for (byte col = 0; col < 4; col ++) {
-                image2[col][row] = image[3 - row][col];
-            }
+        for (int i = 0; i < 3; i ++) {
+            rotationStep(image[0][i], 0, i, 0);
         }
-        return image2;
+        rotationStep(image[1][1], 1, 1, 0);
+        return image;
+    }
+
+    private static void rotationStep(byte value, int row, int col, int hopCounter) {
+       byte nextVal = image[col][3 - row];
+       image[col][3 - row] = value;
+       int newCol = 3 - row;
+       if (hopCounter == 3) {
+           image[col][newCol] = value;
+       } else {
+           rotationStep(nextVal, col, newCol, hopCounter + 1);
+       }
     }
 }
