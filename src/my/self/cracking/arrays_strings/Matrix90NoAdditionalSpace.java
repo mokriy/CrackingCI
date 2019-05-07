@@ -1,7 +1,7 @@
 package my.self.cracking.arrays_strings;
 
 public class Matrix90NoAdditionalSpace {
-    static byte[][] image = new byte[4][4];
+    private static byte[][] image = new byte[4][4];
 
     public static void main(String[] args) {
         for (byte row = 0; row < 4; row++) {
