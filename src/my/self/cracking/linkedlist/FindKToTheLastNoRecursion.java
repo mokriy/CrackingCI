@@ -6,9 +6,10 @@ public class FindKToTheLastNoRecursion {
 
     public static void main(String[] args) {
         int k = Integer.valueOf(args[0]);
+        int size = Integer.valueOf(args[1]);
 
         Node linkedList = null;
-        for (int i = 0; i <= 9; i++) {
+        for (int i = 1; i <= size; i++) {
             if (linkedList == null) {
                 linkedList = new Node(i);
                 start = linkedList;
@@ -25,8 +26,8 @@ public class FindKToTheLastNoRecursion {
     private static Node findKBeforeLast(int k) {
         Node kPointer = start;
         Node lastPointer = start;
-        int step = 0;
-        while (lastPointer != null) {
+        int step = 1;
+        while (lastPointer.next != null) {
             if (step > k) {
                 kPointer = kPointer.next;
             }
